@@ -112,5 +112,7 @@ for user_info in data:
         'value': weather['uvDescription'], 
         'color': get_random_color()
         }
+    res = wm.send_template(user_id, template_id, data,'https://froan.cn')
+    print(res)
     num += 1
 print(num)
