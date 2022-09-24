@@ -39,6 +39,10 @@ def get_count(born_date):
     delta = today - datetime.strptime(born_date, "%Y-%m-%d")
     return delta.days
 
+def get_count1(start_date):
+    delta1 = today - datetime.strptime(start_date, "%Y-%m-%d")
+    return delta1.days
+
 
 def get_birthday(birthday):
     nextdate = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
@@ -56,6 +60,7 @@ data = js_text['data']
 num = 0
 for user_info in data:
     born_date = user_info['born_date']
+    start_date = user_info['start_date']
     birthday = born_date[5:]
     city = user_info['city']
     user_id = user_info['user_id']
@@ -90,6 +95,10 @@ for user_info in data:
         }
     data['born_days'] = {
         'value': get_count(born_date), 
+        'color': get_random_color()
+        }
+    data['start_days'] = {
+        'value': get_count(start_date), 
         'color': get_random_color()
         }
     data['birthday_left'] = {
